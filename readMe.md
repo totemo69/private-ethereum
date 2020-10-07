@@ -1,0 +1,8 @@
+bootnode 
+address - 0xad03Cd2Bc9a5Ac367E5CDCe45bE905F461A0E524
+
+minernode
+address - 0x2ED713d6012c996681aC7ECd278dB62Ee694519a
+
+rpcnode 
+address - 0x517CfDA9430B115EF7c763d20ACB57f21317ca28

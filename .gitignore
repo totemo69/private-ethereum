@@ -1,0 +1,4 @@
+bootnode/data
+minernode/data
+rpcnode/data
+**.env

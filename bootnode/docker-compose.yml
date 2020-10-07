@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  geth:
+    image: "ethereum/client-go"
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+    volumes: 
+      - ./keystore:/root/private-ethereum/keystore:rw
+      - ./data:/root/private-ethereum/geth:rw
+      - ./../init-script.sh:/root/init-script.sh
+      - ./../genesis.json:/root/genesis.json
+    networks:
+      - default
+    entrypoint: /root/init-script.sh
+    command: "--datadir=/root/private-ethereum --networkid 69 -verbosity 3 --nodiscover"
+networks:
+  default:
+    external:
+      name: privtnet

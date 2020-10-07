@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  rpcnode:
+    image: "ethereum/client-go"
+    ports:
+      - "30305:30305"
+      - "30305:30305/udp"
+      - "8545:8545"
+      - "8546:8546"
+    volumes: 
+      - ./keystore:/root/private-ethereum/keystore:rw
+      - ./data:/root/private-ethereum/geth:rw
+      - ./../init-script.sh:/root/init-script.sh
+      - ./../genesis.json:/root/genesis.json
+    networks:
+    - default
+    entrypoint: /root/init-script.sh
+    command: --datadir=/root/private-ethereum --networkid 69 --port 30305 --http --http.addr rpcnode --http.corsdomain '*' --http.api personal,eth,net,web3 -verbosity 3 --bootnodes "${BOOTNODE_URL}"  --nodiscover
+networks:
+  default:
+    external:
+      name: privtnet
