@@ -1,7 +1,21 @@
-#!/bin/sh
-if [ ! -d /root/private-ethereum/geth/chaindata ]; then
-    echo "/root/private-ethereum/geth/chaindata, running 'geth init'..."
-    geth init --datadir /root/private-ethereum /root/genesis.json >> /root/private-ethereum/eth.log
+#!/bin/bash
+if [ ! -d /datadisk/private-ethereum/bootnode/data/geth/chaindata ]; then
+    echo "/datadisk/private-ethereum/bootnode/geth/chaindata, running 'geth init'..."
+    #usr/bin/geth init --datadir /datadisk/private-ethereum/bootnode /datadisk/private-ethereum/genesis.json >> /datadisk/private-ethereum/bootnode/eth.log
     echo "...done!"
+else
+    echo "geth init unsuccessful on bootnode, please check logs.."
+if [ ! -d /datadisk/private-ethereum/rpcnode/data/geth/chaindata ]; then
+    echo "/datadisk/private-ethereum/rpcnode/geth/chaindata, running 'geth init'..."
+    #/usr/bin/geth init --datadir /datadisk/private-ethereum/rpcnode /datadisk/private-ethereum/genesis.json >> /datadisk/private-ethereum/rpcnode/eth.log
+    echo "...done!"
+else
+    echo "geth init unsuccessful on rpcnode, please check logs.."
+if [ ! -d /datadisk/private-ethereum/minernode/data/geth/chaindata ]; then
+    echo "/datadisk/private-ethereum/minernode/geth/chaindata, running 'geth init'..."
+    #/usr/bin/geth init --datadir /datadisk/private-ethereum/minernode /datadisk/private-ethereum/genesis.json >> /datadisk/private-ethereum/minernode/eth.log
+    echo "...done!"
+else
+    echo "geth init unsuccessful on minernode, please check logs.."
 fi
 geth "$@"
