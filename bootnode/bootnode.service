@@ -1,6 +1,5 @@
 [Unit]
 Description=Ethereum Bootnode
-Documentation=man:geth(1)
 
 [Service]
 ExecStart=/usr/bin/geth --datadir /datadisk/private-ethereum/bootnode/data --networkid 60 --port 30301 --verbosity 3 --nousb --nodiscover

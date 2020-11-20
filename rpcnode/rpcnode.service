@@ -1,6 +1,5 @@
 [Unit]
 Description=Ethereum RPCnode
-Documentation=man:geth(1)
 
 [Service]
 ExecStart=/usr/bin/geth --datadir /datadisk/private-ethereum/rpcnode/data --networkid 60 --port 30302 --http --http.addr 0.0.0.0 --http.corsdomain '*' --http.vhosts psvm1.japaneast.cloudapp.azure.com --http.api personal,eth,net,web3 --verbosity 3 --nousb --nodiscover
