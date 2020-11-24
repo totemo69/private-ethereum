@@ -7,8 +7,8 @@ WorkingDirectory=/datadisk/private-ethereum/rpcnode
 Restart=always
 RestartSec=30
 Type=simple
-User=root
-Group=root
+User=uservm2
+Group=uservm2
 
 [Install]
 WantedBy=multi-user.target
