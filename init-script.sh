@@ -16,7 +16,9 @@ fi
 if [ ! -d /datadisk/private-ethereum/minernode/data/geth/chaindata ]; then
     echo "/datadisk/private-ethereum/minernode/geth/chaindata, running 'geth init'..."
     /usr/bin/geth init --datadir /datadisk/private-ethereum/minernode/data /datadisk/private-ethereum/genesis.json
-    /bin/cp /datadisk/private-ethereum/minernode/keystore/* /datadisk/private-ethereum/minernode/data/keystore/
+    echo "...done!"
+    echo "copying UTC file for minernode..."
+    /bin/cp -f /datadisk/private-ethereum/minernode/keystore/* /datadisk/private-ethereum/minernode/data/keystore/
     echo "...done!"
 else
     echo "geth init unsuccessful on minernode, please check logs.."
