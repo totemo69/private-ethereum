@@ -1,13 +1,14 @@
 [Unit]
 Description=Ethereum Minernode
+After=network.target
 
 [Service]
-ExecStart=/usr/bin/geth --datadir /datadisk/private-ethereum/minernode/data --networkid 60 --port 30303 --verbosity 3 --unlock 0x2ED713d6012c996681aC7ECd278dB62Ee694519a --password /datadisk/private-ethereum/minernode/pwd --mine --miner.threads=1 --nousb --nodiscover
+ExecStart=/bin/sh -c 'exec /usr/bin/geth --datadir /datadisk/private-ethereum/minernode/data --networkid 60 --port 30303 --verbosity 3 --unlock 0x2ED713d6012c996681aC7ECd278dB62Ee694519a --password /datadisk/private-ethereum/minernode/pwd --mine --miner.threads=1 --nousb --nodiscover 2>>/datadisk/private-ethereum/logs/minernode.log'
 WorkingDirectory=/datadisk/private-ethereum/minernode
 Restart=always
 RestartSec=30
-StandardOutput=file:/datadisk/private-ethereum/logs/minernode.log
-StandardError=file:/datadisk/private-ethereum/logs/minernode-err.log
+#StandardOutput=file:/datadisk/private-ethereum/logs/minernode.log
+#StandardError=file:/datadisk/private-ethereum/logs/minernode-err.log
 SyslogIdentifier=minernode
 Type=simple
 User=uservm2

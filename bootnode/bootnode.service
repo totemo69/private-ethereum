@@ -1,13 +1,14 @@
 [Unit]
 Description=Ethereum Bootnode
+After=network.target
 
 [Service]
-ExecStart=/usr/bin/geth --datadir /datadisk/private-ethereum/bootnode/data --networkid 60 --port 30301 --verbosity 3 --nousb --nodiscover
+ExecStart=/bin/sh -c 'exec /usr/bin/geth --datadir /datadisk/private-ethereum/bootnode/data --networkid 60 --port 30301 --verbosity 3 --nousb --nodiscover 2>>/datadisk/private-ethereum/logs/bootnode.log'
 WorkingDirectory=/datadisk/private-ethereum/bootnode
 Restart=always
 RestartSec=30
-StandardOutput=file:/datadisk/private-ethereum/logs/bootnode.log
-StandardError=file:/datadisk/private-ethereum/logs/bootnode-err.log
+#StandardOutput=file:/datadisk/private-ethereum/logs/bootnode.log
+#StandardError=file:/datadisk/private-ethereum/logs/bootnode-err.log
 SyslogIdentifier=bootnode
 Type=simple
 User=uservm2
