@@ -3,7 +3,7 @@ Description=Ethereum RPCnode
 After=network.target
 
 [Service]
-ExecStart=/bin/sh -c 'exec /usr/bin/geth --datadir /datadisk/private-ethereum/rpcnode/data --networkid 60 --port 30302 --http --http.addr 0.0.0.0 --http.corsdomain '*' --http.vhosts psvm1.japaneast.cloudapp.azure.com --http.api personal,eth,net,web3 --verbosity 3 --nousb --nodiscover 2>>/datadisk/private-ethereum/logs/rpcnode.log'
+ExecStart=/bin/sh -c 'exec /usr/bin/geth --datadir /datadisk/private-ethereum/rpcnode/data --networkid 60 --port 30302 --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.vhosts psvm1.japaneast.cloudapp.azure.com --http.api personal,eth,net,web3 --verbosity 3 --nousb --nodiscover 2>>/datadisk/private-ethereum/logs/rpcnode.log'
 WorkingDirectory=/datadisk/private-ethereum/rpcnode
 Restart=always
 RestartSec=30
