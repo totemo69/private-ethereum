@@ -8,7 +8,7 @@ echo "..creating static-nodes.json.."
 "$1"
 ]
 EOF
-/bin/cat $/datadisk/private-ethereum/bootnode/data/geth/static-nodes.json
+/bin/cat /datadisk/private-ethereum/bootnode/data/geth/static-nodes.json
 echo "..done!"
 
 echo "adding bootnode enode to rpcnode peer.."
